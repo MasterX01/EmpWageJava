@@ -1,5 +1,5 @@
-public class EmpWageBuilderUC1 {
-	//This is UC-6
+public class EmpWageBuilder {
+	//This is UC-7
 
 	//constants
         public static final int IS_FULL_TIME = 1;

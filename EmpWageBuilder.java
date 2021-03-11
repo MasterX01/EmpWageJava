@@ -1,5 +1,8 @@
-public class EmpWageBuilderUC1 {
+public class EmpWageBuilder {
+
 	public static void main(String[] args) {
+		//This is UC-3
+
 		//constants
 		int IS_FULL_TIME = 1;
 		int IS_PART_TIME = 2;

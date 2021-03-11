@@ -1,4 +1,4 @@
-public class EmpWageBuilderUC1 {
+public class EmpWageBuilder {
 	//This is UC-6
 
 	//constants

@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+C:\Users\user\OneDrive\Desktop\EmpWageJava\.metadata\.plugins\org.eclipse.jdt.core
+1878056684.index

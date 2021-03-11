@@ -1,4 +1,4 @@
-public class EmpWageBuilderUC1 {
+public class EmpWageBuilder {
 	//This is UC-1
 
 	public static void main(String[] args) {

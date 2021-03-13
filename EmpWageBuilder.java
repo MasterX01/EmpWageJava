@@ -9,7 +9,7 @@ public class EmpWageBuilder {
 	private final int empRatePerHour;
 	private final int numOfWorkingDays;
 	private final int maxHrsPerMonth;
-	
+	private int totalEmpWage;
 	public EmpWageBuilder(String company, int empRatePerHour, int numOfWorkingDays, int maxHrsPerMonth) {
 		this.company = company;
 		this.empRatePerHour = empRatePerHour;
@@ -38,7 +38,7 @@ public class EmpWageBuilder {
 
 	public void wageCalculation() {
 
-		int totalEmpHrs = 0, totalWorkingDays = 0, totalEmpWage = 0;
+		int totalEmpHrs = 0, totalWorkingDays = 0;
 
 		//Computation
 		while (totalWorkingDays < numOfWorkingDays &&
@@ -51,17 +51,22 @@ public class EmpWageBuilder {
 			System.out.println("Employee Wage for day "+ totalWorkingDays + " is " + empWage);
 			totalEmpHrs += empHrs;
 		}
-		System.out.println("Total Wage of Employee from company " + company + " is " + totalEmpWage);
+		//System.out.println("Total Wage of Employee from company " + company + " is " + totalEmpWage);
 
+	}
+
+	public String toString() {
+		return "Total Employee Wage For Company " + company + " is " + totalEmpWage;
 	}
 
 	public static void main(String[] args) {
 
 		EmpWageBuilder reliance = new EmpWageBuilder("Reliance", 15, 10, 50);
 		reliance.wageCalculation();
-		
+		System.out.println(reliance);
 		EmpWageBuilder dMart = new EmpWageBuilder("DMart", 20, 5, 30);
 		dMart.wageCalculation();
+		System.out.println(dMart);
 
 	}
 }

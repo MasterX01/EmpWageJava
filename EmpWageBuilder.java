@@ -1,4 +1,4 @@
-public class EmpWageBuilder {
+public class EmpWageBuilder implements IComputeEmpWage {
 	//This is UC-8
 
 	//constants
@@ -13,7 +13,7 @@ public class EmpWageBuilder {
 		numOfCompany++;
 	}
 
-	public void computeEmpWage() {
+	public void computeWage() {
 		for(int i = 0; i < numOfCompany; i++) {
 			companyEmpWageArray[i].setTotalEmpWage(this.computeWage(companyEmpWageArray[i]));
 			System.out.println(companyEmpWageArray[i]);
@@ -52,7 +52,7 @@ public class EmpWageBuilder {
 		obj.addCompanyEmpWage("DMart",20,2,10);
 		obj.addCompanyEmpWage("NE", 10, 5, 20);
 		obj.addCompanyEmpWage("Reliance",20,2,10);
-		obj.computeEmpWage();
+		obj.computeWage();
 
 	}
 }

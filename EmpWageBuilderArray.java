@@ -4,6 +4,7 @@ public class EmpWageBuilderArray {
     public int noOfWorkingDays = 0;
     public int maxHrsPerMonth = 0;
     public int totalEmpwage;
+
     public EmpWageBuilderArray(String company, int empRatePerHour,int noOfWorkingDays,int maxHrsPerMonth) {
         this.company = company;
         this.empRatePerHour = empRatePerHour;

@@ -44,17 +44,17 @@ public class EmpWageBuilder implements IComputeEmpWage {
 			int empHrs = empHrCheck();
 			totalEmpHrs+=empHrs;
 			System.out.println("Day: "+totalWorkingDays+" Hours Worked:"+ empHrs);
-
+			obj.setDailyWage(empHrs*obj.empRatePerHour);
 		}
 		return totalEmpHrs * obj.empRatePerHour;
 	}
+
 	public static void main(String[] args) {
 		EmpWageBuilder obj = new EmpWageBuilder();
 		obj.addCompanyEmpWage("DMart",20,2,10);
 		obj.addCompanyEmpWage("NE", 10, 5, 20);
 		obj.addCompanyEmpWage("Reliance",20,2,10);
 		obj.computeWage();
-
 	}
 }
 

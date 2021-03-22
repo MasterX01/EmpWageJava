@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class EmpWageBuilder implements IComputeEmpWage {
 	//This is UC-8
 
@@ -5,18 +7,17 @@ public class EmpWageBuilder implements IComputeEmpWage {
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 	static int numOfCompany=0;
-	public EmpWageBuilderArray[] companyEmpWageArray = new EmpWageBuilderArray[10];
-
+	public ArrayList<EmpWageBuilderArray> companyEmpWageArrayList = new ArrayList<EmpWageBuilderArray>();
 
 	public void addCompanyEmpWage(String company,int empRatePerHour,int noOfWorkingDays,int maxHrsPerMonth) {
-		companyEmpWageArray[numOfCompany] = new EmpWageBuilderArray(company,empRatePerHour,noOfWorkingDays,maxHrsPerMonth);
+		companyEmpWageArrayList.add(new EmpWageBuilderArray(company,empRatePerHour,noOfWorkingDays,maxHrsPerMonth));
 		numOfCompany++;
 	}
 
 	public void computeWage() {
-		for(int i = 0; i < numOfCompany; i++) {
-			companyEmpWageArray[i].setTotalEmpWage(this.computeWage(companyEmpWageArray[i]));
-			System.out.println(companyEmpWageArray[i]);
+		for (int i = 0; i < companyEmpWageArrayList.size(); i ++) {
+			companyEmpWageArrayList.get(i).setTotalEmpWage(this.computeWage(companyEmpWageArrayList.get(i)));
+			System.out.println(companyEmpWageArrayList.get(i));
 		}
 	}
 

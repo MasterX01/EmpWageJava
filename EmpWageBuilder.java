@@ -5,11 +5,11 @@ public class EmpWageBuilder {
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 	static int numOfCompany=0;
-	public EmpWageBuilderArray[] companyEmpWageArray = new EmpWageBuilderArray[5];
+	public EmpWageBuilderArray[] companyEmpWageArray = new EmpWageBuilderArray[10];
 
 
 	public void addCompanyEmpWage(String company,int empRatePerHour,int noOfWorkingDays,int maxHrsPerMonth) {
-		companyEmpWageArray[numOfCompany]=new EmpWageBuilderArray(company,empRatePerHour,noOfWorkingDays,maxHrsPerMonth);
+		companyEmpWageArray[numOfCompany] = new EmpWageBuilderArray(company,empRatePerHour,noOfWorkingDays,maxHrsPerMonth);
 		numOfCompany++;
 	}
 
@@ -38,18 +38,19 @@ public class EmpWageBuilder {
 	}
 	public int computeWage(EmpWageBuilderArray obj) {
 		int totalEmpHrs=0, totalWorkingDays=0;
-		while(totalEmpHrs<=EmpWageBuilderArray.maxhrspermonth && totalWorkingDays<EmpWageBuilderArray.noofworkingdays) {
+		while(totalEmpHrs<=obj.maxHrsPerMonth && totalWorkingDays<obj.noOfWorkingDays) {
 			totalWorkingDays++;
 			int empHrs = empHrCheck();
 			totalEmpHrs+=empHrs;
 			System.out.println("Day: "+totalWorkingDays+" Hours Worked:"+ empHrs);
 
 		}
-		return totalEmpHrs * EmpWageBuilderArray.emprateperhour;
+		return totalEmpHrs * obj.empRatePerHour;
 	}
 	public static void main(String[] args) {
 		EmpWageBuilder obj = new EmpWageBuilder();
 		obj.addCompanyEmpWage("DMart",20,2,10);
+		obj.addCompanyEmpWage("NE", 10, 5, 20);
 		obj.addCompanyEmpWage("Reliance",20,2,10);
 		obj.computeEmpWage();
 

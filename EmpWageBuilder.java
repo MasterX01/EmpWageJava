@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EmpWageBuilder implements IComputeEmpWage {
 	//This is UC-8
@@ -8,9 +9,16 @@ public class EmpWageBuilder implements IComputeEmpWage {
 	public static final int IS_PART_TIME = 2;
 	static int numOfCompany=0;
 	public ArrayList<EmpWageBuilderArray> companyEmpWageArrayList = new ArrayList<EmpWageBuilderArray>();
+	public HashMap<String, EmpWageBuilderArray> companyToTotalWage;
+
+	public EmpWageBuilder() {
+		companyToTotalWage = new HashMap<>();
+	}
 
 	public void addCompanyEmpWage(String company,int empRatePerHour,int noOfWorkingDays,int maxHrsPerMonth) {
-		companyEmpWageArrayList.add(new EmpWageBuilderArray(company,empRatePerHour,noOfWorkingDays,maxHrsPerMonth));
+		EmpWageBuilderArray companyObj = new EmpWageBuilderArray(company,empRatePerHour,noOfWorkingDays,maxHrsPerMonth);
+		companyEmpWageArrayList.add(companyObj);
+		companyToTotalWage.put(company, companyObj);
 		numOfCompany++;
 	}
 
@@ -49,12 +57,19 @@ public class EmpWageBuilder implements IComputeEmpWage {
 		return totalEmpHrs * obj.empRatePerHour;
 	}
 
+	@Override
+	public int getTotalWage(String company) {
+		return companyToTotalWage.get(company).totalEmpwage;
+	}
+
 	public static void main(String[] args) {
 		EmpWageBuilder obj = new EmpWageBuilder();
 		obj.addCompanyEmpWage("DMart",20,2,10);
 		obj.addCompanyEmpWage("NE", 10, 5, 20);
 		obj.addCompanyEmpWage("Reliance",20,2,10);
 		obj.computeWage();
+		System.out.println("Total Wage for Dmart is " + obj.getTotalWage("DMart"));
+
 	}
 }
 
